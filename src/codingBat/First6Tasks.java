@@ -3,13 +3,16 @@ package codingBat;
 public class First6Tasks {
 
     public static void main(String[] args) {
-        int[] arr = {1,2,11,15,11};
+        int[] arr = {1,2,11,15,11,55,11,11};
         System.out.println(array11(arr));
-        System.out.println(factorial(5));
+        System.out.println(factorial(3));
         System.out.println(bunnyEars2(4));
         System.out.println(count7(7177897));
         System.out.println(countX("xhixhix"));
         System.out.println(changePi("hip"));
+        System.out.println(factorialRecursion(10));
+        System.out.println(array11(arr, 0));
+
 
     }
 
@@ -34,7 +37,7 @@ array11([1, 2, 3, 4], 0) → 0
 
     }
 
-    public static int factorial(int n){
+    public static int factorial(int n){ //2!=1*2=2, 3!=1*2*3=6
         if (n==0 || n==1) return 1;
         int result = 1;
         for (int i=1; i<=n;i++){
@@ -129,5 +132,26 @@ changePi("pipi") → "3.143.14"
 changePi("pip") → "3.14p"
          */
     }
+
+    public static int factorialRecursion(int n){
+        if (n==0 || n==1){
+            return 1;
+        } else {
+            return n * factorial(n-1);
+        }
+
+    }
+
+    public static int array11(int[] nums, int index) {
+        if(index >= nums.length)
+            return 0;
+
+        if(nums[index] == 11)
+            return 1 + array11(nums, index + 1);
+
+        return array11(nums, index + 1);
+    }
+
+
 
 }
